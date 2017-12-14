@@ -8,12 +8,12 @@ UdpConnection Udpcon = new UdpConnection("Receiving IpAddress", ReceivingPort, "
 ```
 Bind the Udp connection to start receiving packets.
 ```C#
-Udpcon.Bind(); //Enables the receiving of Udp packets
-Udpcon.Unbind(); //Disables the receiving of Udp packets
+Udpcon.Bind(); //Bind socket
+Udpcon.Unbind(); //Unbinds the socket
 ```
 Sending messages over Udp
 ```C#
-Udpcon.Send("Enter string here"); //Sends a message to the udp sending IpAddress:Port
+Udpcon.Send("Enter string here");
 ```
 
 ### Enable output to a ListBox [Thread-safe]
