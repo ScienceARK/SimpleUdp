@@ -5,15 +5,19 @@ Net.Sockets Udp Wrapper C#.
 Create a new instance of the UdpConnection object.
 ```C#
 UdpConnection Udpcon = new UdpConnection("Receiving IpAddress", "Receiving Port", "Sending IpAdress", "Sending Port");
+```
+Bind the Udp connection to start receiving packets.
+```C#
 Udpcon.Bind(); //Enables the receiving of Udp packets
 Udpcon.Unbind(); //Disables the receiving of Udp packets
 ```
-
 Sending messages over Udp
 ```C#
 Udpcon.Send("Enter string here"); //Sends a message to the udp sending IpAddress:Port
 ```
 
 # Enable output to a ListBox [Thread-safe]
-- UdpConnection.UseLogger = true
-- SimpleUdp.Log.LogListForm = ListBox
+```C#
+UdpConnection.UseLogger = true;
+SimpleUdp.Log.LogListForm = ListBox;
+```
