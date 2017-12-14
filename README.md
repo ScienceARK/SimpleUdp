@@ -1,5 +1,10 @@
 # SimpleUdp
 Net.Sockets Udp Wrapper C#.
+#####Dependencies
+- NetFrameWork 4.5.2
+- System.Net
+- System.Net.Sockets
+- System.Windows.Forms
 
 ## How to
 Create a new instance of the UdpConnection object.
