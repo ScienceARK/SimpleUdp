@@ -3,7 +3,9 @@ Net.Sockets Udp Wrapper C#.
 
 # How to
 - Create a new instance of the UdpConnection object.
-Example: UdpConnection Udpcon = new UdpConnection("Receiving IpAddress", "Receiving Port", "Sending IpAdress", "Sending Port")
+```C#
+UdpConnection Udpcon = new UdpConnection("Receiving IpAddress", "Receiving Port", "Sending IpAdress", "Sending Port")
+```
 - .Bind (Opens the receiving connection)
 - .Unbind (Closes the receiving connection)
 
