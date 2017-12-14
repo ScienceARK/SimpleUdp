@@ -3,8 +3,8 @@ Net.Sockets Udp Wrapper C#.
 #### Dependencies
 - .Net Framework 4.5.2+
 - System.Net
-- System.Net.Sockets
 - System.Windows.Forms
+- System.Threading
 
 ## How to
 Create a new instance of the UdpConnection object.
