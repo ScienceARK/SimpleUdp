@@ -1,7 +1,7 @@
 # SimpleUdp
 Net.Sockets Udp Wrapper C#.
 #### Dependencies
-- NetFrameWork 4.5.2
+- .Net FrameWork 4.5.2+
 - System.Net
 - System.Net.Sockets
 - System.Windows.Forms
