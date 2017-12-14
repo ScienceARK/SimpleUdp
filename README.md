@@ -19,5 +19,5 @@ Udpcon.Send("Enter string here");
 ### Enable output to a ListBox [Thread-safe]
 ```C#
 UdpConnection.UseLogger = true;
-SimpleUdp.Log.LogListForm = ListBox;
+SimpleUdp.Log.LogListBox = ListBox;
 ```
