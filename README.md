@@ -1,7 +1,7 @@
 # SimpleUdp
 Net.Sockets Udp Wrapper C#.
 
-# How to
+## How to
 Create a new instance of the UdpConnection object.
 ```C#
 UdpConnection Udpcon = new UdpConnection("Receiving IpAddress", "Receiving Port", "Sending IpAdress", "Sending Port");
@@ -16,7 +16,7 @@ Sending messages over Udp
 Udpcon.Send("Enter string here"); //Sends a message to the udp sending IpAddress:Port
 ```
 
-# Enable output to a ListBox [Thread-safe]
+### Enable output to a ListBox [Thread-safe]
 ```C#
 UdpConnection.UseLogger = true;
 SimpleUdp.Log.LogListForm = ListBox;
