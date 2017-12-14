@@ -21,7 +21,7 @@ Sending messages over Udp
 Udpcon.Send("Enter string here");
 ```
 
-### Output receiving messages to a listbox [Thread-safe]
+#### Output receiving messages to a listbox [Thread-safe]
 ```C#
 UdpConnection.UseLogger = true;
 SimpleUdp.Log.LogListBox = ListBox;
