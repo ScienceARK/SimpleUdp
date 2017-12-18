@@ -4,3 +4,9 @@ C:\Users\Dominic Kleeven\source\repos\SimpleUdp\SimpleUdp\obj\Debug\SimpleUdp.cs
 C:\Users\Dominic Kleeven\source\repos\SimpleUdp\SimpleUdp\obj\Debug\SimpleUdp.csproj.CoreCompileInputs.cache
 C:\Users\Dominic Kleeven\source\repos\SimpleUdp\SimpleUdp\obj\Debug\SimpleUdp.dll
 C:\Users\Dominic Kleeven\source\repos\SimpleUdp\SimpleUdp\obj\Debug\SimpleUdp.pdb
+C:\Users\Dominic Kleeven\Documents\GitHub\SimpleUdp\bin\Debug\SimpleUdp.dll
+C:\Users\Dominic Kleeven\Documents\GitHub\SimpleUdp\bin\Debug\SimpleUdp.pdb
+C:\Users\Dominic Kleeven\Documents\GitHub\SimpleUdp\obj\Debug\SimpleUdp.csprojResolveAssemblyReference.cache
+C:\Users\Dominic Kleeven\Documents\GitHub\SimpleUdp\obj\Debug\SimpleUdp.csproj.CoreCompileInputs.cache
+C:\Users\Dominic Kleeven\Documents\GitHub\SimpleUdp\obj\Debug\SimpleUdp.dll
+C:\Users\Dominic Kleeven\Documents\GitHub\SimpleUdp\obj\Debug\SimpleUdp.pdb

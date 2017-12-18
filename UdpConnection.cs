@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace SimpleUdp
 {
@@ -18,7 +19,15 @@ namespace SimpleUdp
 
         private Thread ListenThread;
 
-        public static bool UseLogger { get; set; } = false;
+
+        public delegate void ReceivedMessage(object sender, ReceivedEventArgs args);
+
+        public event ReceivedMessage NewMessage;   
+
+        protected virtual void OnReceivedMessage(string Message)
+        {
+            NewMessage(this, new ReceivedEventArgs(Message, this));           
+        }
 
         public UdpConnection(string ListenIp, int ListenPort, string SendIp, int SendPort)
         {
@@ -27,10 +36,11 @@ namespace SimpleUdp
                 ListenEndpoint = new IPEndPoint(IPAddress.Parse(ListenIp), ListenPort);
                 SendEndPoint = new IPEndPoint(IPAddress.Parse(SendIp), SendPort);
             }
-            catch (Exception)
+            catch (Exception Exc)
             {
-                Log.Instance.Write($"Failed to create {this}, parsing error.");
+                MessageBox.Show(Exc.ToString());
             }
+           
         }
 
         public void Send(string Message)
@@ -39,12 +49,10 @@ namespace SimpleUdp
             {
                 byte[] Bytes = Encoding.ASCII.GetBytes(Message);
                 UdpSend.Send(Bytes, Bytes.Length, SendEndPoint);
-                Log.Instance.Write($"Send [{Message}] to: ]{SendEndPoint}]");
             }
             catch (Exception Exc)
             {
-
-                Log.Instance.Write($"Failed to send message, exception: {Exc}");
+                MessageBox.Show(Exc.ToString());
             }
 
         }
@@ -57,12 +65,11 @@ namespace SimpleUdp
                 UdpListen.Client.Bind(ListenEndpoint);
                 ListenThread = new Thread(StartListening);
                 ListenThread.Start();
-                Log.Instance.Write($"Udp Listener successfully bound to: {ListenEndpoint}");
             }
 
             catch (Exception Exc)
             {
-                Log.Instance.Write($"Failed to bind {this}, exception: {Exc}");
+                MessageBox.Show(Exc.ToString());
             }
 
 
@@ -75,12 +82,11 @@ namespace SimpleUdp
 
                 ListenThread.Suspend(); //Deprecated
                 UdpListen.Close();
-                Log.Instance.Write("Udp Listener Unbound, connections will be actively refused.");
 
             }
             catch (Exception Exc)
             {
-                Log.Instance.Write($"Udp Listener failed to unbind, exception: {Exc}");
+                MessageBox.Show(Exc.ToString());
             }
 
 
@@ -94,7 +100,7 @@ namespace SimpleUdp
 
                 if (Receiving != null || Receiving.Length > 0)
                 {
-                    Log.Instance.Write($"Received: {Encoding.ASCII.GetString(Receiving)}");
+                    OnReceivedMessage(Encoding.ASCII.GetString(Receiving));
                 }
             }
         }
@@ -103,5 +109,7 @@ namespace SimpleUdp
         {
             return $"UdpConnection, EndPoints: [LISTEN]{ListenEndpoint}, [SEND]{SendEndPoint}";
         }
+
     }
+
 }
