@@ -19,14 +19,13 @@ namespace SimpleUdp
 
         private Thread ListenThread;
 
-
-        public delegate void ReceivedMessage(object sender, ReceivedEventArgs args);
+        public delegate void ReceivedMessage(object sender, ReceivedMessageEventArgs args);
 
         public event ReceivedMessage NewMessage;   
 
         protected virtual void OnReceivedMessage(string Message)
         {
-            NewMessage(this, new ReceivedEventArgs(Message, this));           
+            NewMessage(this, new ReceivedMessageEventArgs(Message, this));           
         }
 
         public UdpConnection(string ListenIp, int ListenPort, string SendIp, int SendPort)
@@ -43,6 +42,14 @@ namespace SimpleUdp
            
         }
 
+
+        public void Kill()
+        {
+            ListenThread.Abort();
+        }
+
+
+
         public void Send(string Message)
         {
             try
@@ -52,6 +59,20 @@ namespace SimpleUdp
             }
             catch (Exception Exc)
             {
+                MessageBox.Show(Exc.ToString());
+            }
+
+        }
+
+        public void Send(byte[] Bytes)
+        {
+            try
+            {
+                UdpSend.Send(Bytes, Bytes.Length, SendEndPoint);
+            }
+            catch (Exception Exc)
+            {
+
                 MessageBox.Show(Exc.ToString());
             }
 
