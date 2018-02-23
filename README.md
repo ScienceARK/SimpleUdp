@@ -24,7 +24,7 @@ Udpcon.Send("Enter string here");
 
 Subscribe EventHandler
 ```C#
-Udpcon.NewMessage += NewMessageEventMethod
+Udpcon.NewMessage += NewMessageEventMethod;
 
 Args returns a message when a message is received.
 ```
