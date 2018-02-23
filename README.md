@@ -1,7 +1,6 @@
 # SimpleUdp
 Net.Sockets Udp Wrapper C#.
-#### ToDo
-- Add EventHandler (OnReceive)
+
 #### Dependencies
 - .Net Framework 4.5.2+
 - System.Net
@@ -23,8 +22,10 @@ Sending messages over Udp
 Udpcon.Send("Enter string here");
 ```
 
-#### Output receiving messages to a listbox [Thread-safe]
+Subscribe EventHandler
 ```C#
-UdpConnection.UseLogger = true;
-SimpleUdp.Log.LogListBox = ListBox;
+Udpcon.NewMessage += NewMessageEventMethod
+
+Args returns a message when a message is received.
 ```
+
